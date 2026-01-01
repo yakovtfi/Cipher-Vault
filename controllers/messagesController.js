@@ -21,7 +21,7 @@ export const encryptMessage = async (req, res) => {
 
     if (error || !data) {
         console.error('Supabase insert failed', error);
-        return res.status(500).json({ error: 'store_failed', details: error?.message });
+        return res.status(500).json({ error: 'store_failed'});
     }
 
     await users.updateOne({ _id: req.user._id }, { $inc: { encryptedMessagesCount: 1 } });
